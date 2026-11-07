@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dashboard de Medidores</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%E2%9A%A1%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-mode="novo">
+<header>
+<h1 id="ttl"></h1>
+<div style="display:flex;gap:8px;flex-wrap:wrap">
+<button type="button" class="clr" id="impb">📥 Importar planilha (.xlsx)</button><input type="file" id="imp" accept=".xlsx" hidden>
+<span id="svs" aria-live="polite"></span>
+<button class="clr sv" id="sv" type="button" title="Salvar os dados atuais deste painel">💾 Salvar</button>
+<button class="clr" id="exp" type="button" title="Gera o arquivo js/data.js com os dados atuais (novos + retirados) para publicar no GitHub">⬇️ Exportar data.js</button>
+<button class="clr" id="clr" type="button">Limpar filtros</button>
+</div>
+</header>
+<div class="wrap">
+<aside>
+<div class="card sl"><h3>BASES</h3><div class="chips" id="s-base"></div></div>
+<div class="card"><div class="tabs" role="tablist" aria-label="Tipo de medidor">
+<button type="button" role="tab" id="t-novo" data-tab="novo">MEDIDORES NOVOS</button>
+<button type="button" role="tab" id="t-retirado" data-tab="retirado">MEDIDORES RETIRADOS</button>
+</div></div>
+<div class="card sl" id="rc"><h3>RESPONSÁVEIS</h3><input type="search" id="rq" placeholder="Buscar responsável…"><div class="chips sc" id="s-resp"></div></div>
+
+<div class="card" data-only="novo"><h2>TOP 10 RESPONSÁVEIS</h2><div id="c-resp"></div></div>
+</aside>
+<main>
+<div class="kpis" id="kpis"></div>
+<div class="grid">
+<div class="card"><h2>LOCALIDADES</h2><div id="c-loc"></div></div>
+<div class="card" data-only="novo"><h2>MODELOS DOS MEDIDORES</h2><div id="c-dim"></div></div>
+<div class="card" data-only="retirado"><h2>TOP 10 RESPONSÁVEIS</h2><div id="c-resp2"></div></div>
+<div class="card"><h2>ACOMPANHAMENTOS DOS PRAZOS</h2><div id="c-faixa"></div></div>
+</div>
+<div class="card"><h2>PLANILHA DE ACOMPANHAMENTO <span id="cnt" style="color:var(--mu);font-weight:400"></span></h2>
+<input type="search" id="mq" placeholder="Buscar número do medidor…"><div class="tw" id="tbl"></div></div>
+</main></div>
+<div class="mb" id="pw" hidden><form class="md" id="pwf" novalidate><h2>Senha de acesso</h2>
+<input type="password" id="pwi" autocomplete="current-password" aria-label="Senha de acesso" placeholder="Digite a senha">
+<div class="er" id="pwe" aria-live="polite"></div>
+<div class="ma"><button type="button" class="clr" id="pwc">Cancelar</button><button type="submit" class="clr pri" id="pwb">Entrar</button></div>
+</form></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body></html>

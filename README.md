@@ -11,10 +11,10 @@ Site estático (HTML + CSS + JS puro) + uma função serverless da Vercel que gu
 │   ├── index.html
 │   ├── css/style.css
 │   └── js/
-│       ├── data.js       # dados iniciais embutidos (DN = novos, DR = retirados)
+│       ├── commit -m "Atualiza dados dos medidores"       # dados iniciais embutidos (DN = novos, DR = retirados)
 │       └── app.js        # filtros, gráficos, tabela, importação .xlsx, salvar
 ├── api/
-│   └── data.js           # função serverless: GET/POST /api/data
+│   └── git push           # função serverless: GET/POST /api/data
 ├── vercel.json
 ├── package.json          # dependência: @upstash/redis
 └── README.md
@@ -57,7 +57,7 @@ Use repositório **privado** (há nomes de responsáveis em `public/js/data.js`)
 
 ## Segurança
 
-- A senha **não está mais no código**: fica na variável `ADMIN_PASSWORD` e é conferida no servidor.
+- A senha **1379**: fica na variável `1379` e é conferida no servidor.
 - O servidor bloqueia o IP por 15 min após 10 senhas erradas.
 - Quem tem a senha pode sobrescrever os dados de todos. Guarde um backup com **⬇️ Exportar data.js** de tempos em tempos.
 - Leitura (`GET /api/data`) não exige senha: use a Deployment Protection se os dados forem sensíveis.
